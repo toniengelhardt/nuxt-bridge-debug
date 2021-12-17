@@ -3,7 +3,7 @@ import { defineNuxtConfig } from '@nuxt/bridge'
 export default defineNuxtConfig({
 
   bridge: {
-    vite: true,
+    vite: false,
   },
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
