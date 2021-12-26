@@ -6,11 +6,19 @@ export default defineNuxtConfig({
     vite: false,
   },
 
+  vite: {
+    optimizeDeps: {
+      include: [
+        'cookie',
+      ],
+    },
+  },
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
-  devtools: true,
-  sourcemap: true,
+  components: true,
+  devtools: false,
+  sourcemap: false,
   productionTip: false,
   telemetry: true,
 
@@ -19,10 +27,10 @@ export default defineNuxtConfig({
     test: 'test',
   },
 
-  privateRuntimeConfig: {
+  /* privateRuntimeConfig: {
     // Private vars available only to the server.
     // e.g. apiSecret: process.env.API_SECRET
-  },
+  }, */
 
   manifest: {
     name: 'Nuxt Bridge Debug',
@@ -60,9 +68,6 @@ export default defineNuxtConfig({
   plugins: [
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -75,7 +80,7 @@ export default defineNuxtConfig({
   ],
 
   buildModules: [
-    '@nuxtjs/date-fns',
+    // '@nuxtjs/date-fns',
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
     '@nuxt/postcss8',
@@ -87,7 +92,7 @@ export default defineNuxtConfig({
 
   router: {
     base: '/',
-    middleware: ['auth'],
+    // middleware: ['auth'],
     linkActiveClass: 'active',
     linkExactActiveClass: 'exact-active',
     /* extendRoutes(routes) {
@@ -96,5 +101,9 @@ export default defineNuxtConfig({
         redirect: '/test',
       })
     } */
+  },
+
+  axios: {
+    baseURL: '/',
   },
 })
